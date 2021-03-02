@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 import './index.css';
 import App from './Containers/App';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';  //"css library downloded using npm install tachyons"
+import { searchRobots } from './reducers';
+
+const store = createStore(searchRobots);
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>
-      <App/>
-    </div>
+      <Provider store ={store}>
+        <App/>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
